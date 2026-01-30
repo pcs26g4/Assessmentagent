@@ -1,5 +1,5 @@
 variable "container_name" {
-  default = "agent-local"
+  default = "assessmentagent-local"
 }
 
 variable "image_name" {
@@ -12,4 +12,5 @@ variable "internal_port" {
 
 variable "external_port" {
   default = 8025
+
 }
