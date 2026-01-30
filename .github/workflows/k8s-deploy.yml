@@ -1,0 +1,25 @@
+name: Kubernetes Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+         
+      - name: Build Docker image
+        run: |
+          docker build -t agent-backend:local .
+
+      - name: Verify image
+        run: docker images | grep agent-backend
+      - name: Deploy to local Kubernetes
+        run: |
+          kubectl apply -f k8s/
+          kubectl rollout restart deployment/agent-backend -n agent-local
