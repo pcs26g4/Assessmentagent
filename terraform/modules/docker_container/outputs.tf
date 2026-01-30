@@ -1,3 +1,4 @@
 output "container_id" {
-  value = docker_container.app_container.id
+  value = docker_container.assessmentagent_container.id
+
 }
