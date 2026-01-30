@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/Checkout@v4
+        uses: actions/checkout@v4
 
       - name: Deploy to Render
         run: |
