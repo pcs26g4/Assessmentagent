@@ -21,5 +21,8 @@ jobs:
         run: docker images | findstr agent-backend
       - name: Deploy to local Kubernetes
         run: |
-          kubectl apply -f k8s/
-          kubectl rollout restart deployment/agent-backend -n agent-local
+           kubectl delete pod agent-backend -n agent-local --ignore-not-found
+           kubectl run agent-backend \
+             --image=agent-backend:local \
+             --port=8000 \
+             -n agent-local
