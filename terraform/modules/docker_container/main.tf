@@ -3,7 +3,7 @@ resource "docker_image" "app_image" {
   keep_locally = true
 }
 
-resource "docker_container" "app_container" {
+resource "docker_container" "assessmentagent_container" {
   name  = var.container_name
   image = docker_image.app_image.image_id
 
@@ -11,4 +11,5 @@ resource "docker_container" "app_container" {
     internal = var.internal_port
     external = var.external_port
   }
+
 }
