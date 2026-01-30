@@ -22,7 +22,7 @@ jobs:
       - name: Deploy to local Kubernetes
         run: |
            kubectl delete pod agent-backend -n agent-local --ignore-not-found
-           kubectl run agent-backend \
-             --image=agent-backend:local \
-             --port=8000 \
+           kubectl run agent-backend `
+             --image=agent-backend:local `
+             --port=8000 `
              -n agent-local
