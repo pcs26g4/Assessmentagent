@@ -18,7 +18,7 @@ jobs:
           docker build -t agent-backend:local .
 
       - name: Verify image
-        run: docker images | grep agent-backend
+        run: docker images | findstr agent-backend
       - name: Deploy to local Kubernetes
         run: |
           kubectl apply -f k8s/
