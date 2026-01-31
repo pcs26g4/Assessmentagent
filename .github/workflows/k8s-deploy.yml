@@ -25,5 +25,5 @@ jobs:
            kubectl run agent-backend `
              --image=agent-backend:local `
              --port=8000 `
-             --env-from=secret/db-secret `
+             --env="DATABASE_URL=postgresql://postgres.yifdklzusskuhqvxfhbd:Manoj_gunda@aws-1-us-east-1.pooler.supabase.com:6543/postgres" `
              -n agent-local
